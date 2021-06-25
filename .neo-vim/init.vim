@@ -67,23 +67,13 @@ Plug 'sbdchd/neoformat'
 " should I try another status bar???
 "  Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
 " Plug 'hoob3rt/lualine.nvim'
-Plug 'ThePrimeagen/harpoon'
-Plug 'ThePrimeagen/vim-with-me'
-Plug 'ThePrimeagen/git-worktree.nvim'
-
-" Commentary
-Plug 'tpope/vim-commentary'
-
-" StatusBar
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
 " Adding local modules
-" let &runtimepath.=',/home/theprimeagen/personal/harpoon/master'
-" let &runtimepath.=',/home/theprimeagen/personal/vim-with-me/ui'
-" let &runtimepath.=',/home/theprimeagen/personal/git-worktree.nvim/master'
+let &runtimepath.=',/home/theprimeagen/personal/harpoon/master'
+let &runtimepath.=',/home/theprimeagen/personal/vim-with-me/ui'
+let &runtimepath.=',/home/theprimeagen/personal/git-worktree.nvim/master'
 
 " let g:vimspector_install_gadgets = [ 'debugpy', 'vscode-cpptools', 'CodeLLDB' ]
 
@@ -163,4 +153,3 @@ augroup THE_PRIMEAGEN
     autocmd BufWritePre * %s/\s\+$//e
     autocmd BufEnter,BufWinEnter,TabEnter *.rs :lua require'lsp_extensions'.inlay_hints{}
 augroup END
-

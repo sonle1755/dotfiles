@@ -1,10 +1,10 @@
 set guicursor=
 set relativenumber
-set hlsearch
+set nohlsearch
 set hidden
 set noerrorbells
-set tabstop=2 softtabstop=2
-set shiftwidth=2
+set tabstop=4 softtabstop=4
+set shiftwidth=4
 set expandtab
 set smartindent
 set nu
@@ -32,8 +32,3 @@ set updatetime=50
 set shortmess+=c
 
 set colorcolumn=80
-
-set cursorline cursorcolumn
-nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
-hi CursorLine   cterm=NONE ctermbg=darkgray ctermfg=NONE "guibg=lightgrey guifg=white
-hi CursorColumn cterm=NONE ctermbg=darkgray ctermfg=NONE "guibg=lightgrey guifg=white
