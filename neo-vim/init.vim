@@ -78,12 +78,12 @@ Plug 'tpope/vim-commentary'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-call plug#end()
+" Close Tag
+Plug 'jiangmiao/auto-pairs'
+Plug 'alvan/vim-closetag'
+Plug 'tpope/vim-surround'
 
-" Adding local modules
-" let &runtimepath.=',/home/theprimeagen/personal/harpoon/master'
-" let &runtimepath.=',/home/theprimeagen/personal/vim-with-me/ui'
-" let &runtimepath.=',/home/theprimeagen/personal/git-worktree.nvim/master'
+call plug#end()
 
 " let g:vimspector_install_gadgets = [ 'debugpy', 'vscode-cpptools', 'CodeLLDB' ]
 
@@ -129,6 +129,14 @@ nnoremap <leader>Y gg"+yG
 
 nnoremap <leader>d "_d
 vnoremap <leader>d "_d
+
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <S-Tab> :b#<CR>
+
+" Copy current file name
+nnoremap <leader>cp :let @" = expand("%:t")<CR>
+nnoremap <C-w> :bw<CR>
+
 
 " vim TODO
 nmap <Leader>tu <Plug>BujoChecknormal
