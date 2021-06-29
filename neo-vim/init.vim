@@ -130,13 +130,16 @@ nnoremap <leader>Y gg"+yG
 nnoremap <leader>d "_d
 vnoremap <leader>d "_d
 
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <S-Tab> :b#<CR>
+nnoremap <c-i> :bn<CR>
+nnoremap <S-Tab> :bp<CR>
+nnoremap <leader>gb :b#<CR>
+
 
 " Copy current file name
 nnoremap <leader>cp :let @" = expand("%:t")<CR>
 nnoremap <C-w> :bw<CR>
 
+nnoremap <leader>cs :noh<CR>
 
 " vim TODO
 nmap <Leader>tu <Plug>BujoChecknormal
