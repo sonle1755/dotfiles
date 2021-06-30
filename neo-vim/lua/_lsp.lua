@@ -6,30 +6,24 @@ local function on_attach()
     -- "Big Tech" "Cash Money" Johnson
 end
 
+-- TS
 require'lspconfig'.tsserver.setup{ on_attach=on_attach }
+--------------------------------------------------------------------------------
+
+-- VueJs
 require'lspconfig'.vuels.setup{ on_attach=on_attach }
+--------------------------------------------------------------------------------
+
+-- C++
 require'lspconfig'.clangd.setup {
     on_attach = on_attach,
     root_dir = function() return vim.loop.cwd() end
 }
 
 require'lspconfig'.pyls.setup{ on_attach=on_attach }
+--------------------------------------------------------------------------------
 
-require'lspconfig'.gopls.setup{
-    on_attach=on_attach,
-    cmd = {"gopls", "serve"},
-    settings = {
-        gopls = {
-            analyses = {
-                unusedparams = true,
-            },
-            staticcheck = true,
-        },
-    },
-}
--- who even uses this?
-require'lspconfig'.rust_analyzer.setup{ on_attach=on_attach }
-
+-- LuaJIT
 require'lspconfig'.sumneko_lua.setup {
     on_attach = on_attach,
     cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
@@ -55,6 +49,7 @@ require'lspconfig'.sumneko_lua.setup {
         },
     },
 }
+--------------------------------------------------------------------------------
 
 local opts = {
     -- whether to highlight the currently hovered symbol
