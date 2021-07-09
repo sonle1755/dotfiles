@@ -60,9 +60,22 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'alvan/vim-closetag'
 Plug 'tpope/vim-surround'
 
-call plug#end()
+" Snippets
+Plug 'honza/vim-snippets'
+Plug 'hrsh7th/vim-vsnip'
 
-" lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
+Plug 'folke/lsp-trouble.nvim'
+" Formatter & Linting
+" Plug 'dense-analysis/ale'
+
+" Dev icons
+Plug 'kyazdani42/nvim-web-devicons'
+
+" NeoVim Tree
+Plug 'kyazdani42/nvim-tree.lua'
+
+Plug 'nathanaelkane/vim-indent-guides'
+call plug#end()
 
 let loaded_matchparen = 1
 let mapleader = " "
@@ -79,9 +92,9 @@ vnoremap <leader>y "+y
 nnoremap <leader>Y gg"+yG
 nnoremap <leader>d "_d
 vnoremap <leader>d "_d
-nnoremap <c-i> :bn<CR>
-nnoremap <S-Tab> :bp<CR>
-nnoremap <leader>gb :b#<CR>
+nnoremap <leader>bj :bn<CR>
+nnoremap <leader>bf :bp<CR>
+nnoremap <leader>bb :b#<CR>
 
 " Copy current file name
 nnoremap <leader>cp :let @" = expand("%:t")<CR>
@@ -100,10 +113,6 @@ endfun
 " ES
 com! W w
 
-nmap <leader>nn :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
-\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
-
 augroup highlight_yank
     autocmd!
     autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 40})
@@ -114,4 +123,25 @@ augroup END
 "     autocmd BufWritePre * %s/\s\+$//e
 "     autocmd BufEnter,BufWinEnter,TabEnter *.rs :lua require'lsp_extensions'.inlay_hints{}
 " augroup END
+"
+let b:ale_disable_lsp = 1
+let g:ale_completion_enabled = 0
+let g:ale_sign_error = '■'
+let g:ale_sign_warning = '●'
 
+let g:ale_fix_on_save = 1
+let g:ale_fixers = { 'vue': ['eslint'] }
+
+let g:ale_javascript_eslint_executable = 'eslint_d'
+let g:ale_typescript_eslint_executable = 'eslint_d'
+let g:ale_vue_eslint_executable = 'eslint_d'
+
+let g:ale_linters_explicit = 1
+let g:ale_linters = {
+    \   'typescript': ['eslint', 'tsserver'],
+    \   'javascript': ['eslint', 'tsserver'],
+    \   'vue': ['eslint', 'vls'],
+    \   'php': ['php']
+    \ }
+
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.vue'
