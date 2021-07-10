@@ -56,7 +56,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " Close Tag
-Plug 'jiangmiao/auto-pairs'
+Plug 'windwp/nvim-autopairs'
 Plug 'alvan/vim-closetag'
 Plug 'tpope/vim-surround'
 
@@ -117,31 +117,5 @@ augroup highlight_yank
     autocmd!
     autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 40})
 augroup END
-
-" augroup THE_PRIMEAGEN
-"     autocmd!
-"     autocmd BufWritePre * %s/\s\+$//e
-"     autocmd BufEnter,BufWinEnter,TabEnter *.rs :lua require'lsp_extensions'.inlay_hints{}
-" augroup END
-"
-let b:ale_disable_lsp = 1
-let g:ale_completion_enabled = 0
-let g:ale_sign_error = '■'
-let g:ale_sign_warning = '●'
-
-let g:ale_fix_on_save = 1
-let g:ale_fixers = { 'vue': ['eslint'] }
-
-let g:ale_javascript_eslint_executable = 'eslint_d'
-let g:ale_typescript_eslint_executable = 'eslint_d'
-let g:ale_vue_eslint_executable = 'eslint_d'
-
-let g:ale_linters_explicit = 1
-let g:ale_linters = {
-    \   'typescript': ['eslint', 'tsserver'],
-    \   'javascript': ['eslint', 'tsserver'],
-    \   'vue': ['eslint', 'vls'],
-    \   'php': ['php']
-    \ }
 
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.vue'
