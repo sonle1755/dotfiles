@@ -50,6 +50,7 @@ Plug 'sbdchd/neoformat'
 
 " Commentary
 Plug 'tpope/vim-commentary'
+Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 
 " StatusBar
 Plug 'vim-airline/vim-airline'
@@ -65,8 +66,9 @@ Plug 'honza/vim-snippets'
 Plug 'hrsh7th/vim-vsnip'
 
 Plug 'folke/lsp-trouble.nvim'
+
 " Formatter & Linting
-" Plug 'dense-analysis/ale'
+" Currently using neovim lsp
 
 " Dev icons
 Plug 'kyazdani42/nvim-web-devicons'

@@ -90,7 +90,8 @@ local function on_attach(client)
 
   -- use omnifunc
   vim.bo.omnifunc = 'v:lua.vim.lsp.omnifunc'
-
+  
+  client.resolved_capabilities.document_formatting = true
   print("'" .. client.name .. "' language server started!" )
 end
 
@@ -163,12 +164,7 @@ lsp.vuels.setup {
 
 -- LuaJIT
 require'lspconfig'.sumneko_lua.setup {
-    on_attach = function(client)
-      -- Add this line if you want to let Vetur handle vue file formatting
-      client.resolved_capabilities.document_formatting = true
-      --
-      on_attach(client)
-    end,
+    on_attach=on_attach,
     cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
     settings = {
         Lua = {
