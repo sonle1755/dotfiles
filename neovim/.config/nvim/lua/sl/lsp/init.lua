@@ -1,0 +1,1 @@
+require 'sl.lsp.settings'
