@@ -17,12 +17,12 @@ end
 
 function M.treeToggle()
   local open = function()
-    require 'bufferline.state'.set_offset(31)
+    require 'bufferline.state'.set_offset(40)
     require'nvim-tree'.find_file(true)
   end
 
   local close = function()
-    require'buferline.state'.set_offset(0)
+    require'bufferline.state'.set_offset(0)
     require'nvim-tree'.close()
   end
 

@@ -1,6 +1,7 @@
 require('nvim-autopairs').setup({
   disable_filetype = { "TelescopePrompt" , "vim" },
   enable_check_bracket_line = true,
+  fast_wrap = {}
 })
 
 require("nvim-autopairs.completion.compe").setup({

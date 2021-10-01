@@ -50,7 +50,11 @@ return require('packer').startup {
     use 'szw/vim-maximizer'
 
     -- Git
-    use 'tpope/vim-fugitive'
+    use {
+      'tpope/vim-fugitive',
+      config = function () require 'sl.vim-fugitive' end
+    }
+
     use {
       'lewis6991/gitsigns.nvim',
       requires = { 'nvim-lua/plenary.nvim' },
@@ -61,7 +65,10 @@ return require('packer').startup {
     use 'mbbill/undotree'
     use 'tpope/vim-surround'
     use 'bkad/CamelCaseMotion' -- allows to move by camelCase with w e
-    -- use { 'glepnir/indent-guides.nvim', config = function() require 'sl.plugins.indent-guides' end}
+    use {
+      'lukas-reineke/indent-blankline.nvim',
+      config = function() require 'sl.indent-blankline' end
+    }
 
     -- Telescope
     use {
@@ -119,10 +126,15 @@ return require('packer').startup {
     }
 
     -- Buffer Tabline
+    -- use {
+    --   'romgrk/barbar.nvim',
+    --   requires = {'kyazdani42/nvim-web-devicons'},
+    --   config = function() require 'sl.barbar' end
+    -- }
     use {
-      'romgrk/barbar.nvim',
-      requires = {'kyazdani42/nvim-web-devicons'},
-      config = function() require 'sl.barbar' end
+      'akinsho/bufferline.nvim',
+      requires = 'kyazdani42/nvim-web-devicons',
+      config = function () require 'sl.bufferline' end
     }
 
     -- Theming

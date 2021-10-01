@@ -14,10 +14,12 @@ nnoremap('<leader>y', '"+y')
 vnoremap('<leader>y', '"+y')
 nnoremap('<leader>Y', 'gg"+yG')
 nnoremap('<leader>d', '"_d')
-vnoremap('<leader>d', '"_d')
 
 
 -- Clear highlight search result
 nnoremap('<leader>cs', ':noh<CR>')
 
 inoremap('<C-c>', '<esc>')
+
+
+nnoremap('<leader>w', ':bw<CR>')
