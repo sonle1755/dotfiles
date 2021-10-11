@@ -12,5 +12,6 @@ lsp_mapper("n" , "<space>dn"          , "vim.lsp.diagnostic.goto_next()")
 lsp_mapper("n" , "<space>dp"          , "vim.lsp.diagnostic.goto_prev()")
 lsp_mapper("n" , "<space>da"          , "vim.lsp.diagnostic.set_loclist()")
 lsp_mapper("n" , "<leader>f"          , "vim.lsp.buf.formatting()")
+lsp_mapper("n" , "<leader>e"          , "vim.lsp.diagnostic.show_line_diagnostics()")
 lsp_mapper("i" , "<C-h>"              , "vim.lsp.buf.signature_help()")
 

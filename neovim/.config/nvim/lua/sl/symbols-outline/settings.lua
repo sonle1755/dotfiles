@@ -8,5 +8,4 @@ require('symbols-outline').setup({
   -- whether to show outline guides
   -- default: true
   show_guides = true,
-}
-)
+})

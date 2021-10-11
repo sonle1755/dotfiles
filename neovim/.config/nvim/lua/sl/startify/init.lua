@@ -1,1 +1,0 @@
-require 'sl.startify.settings'

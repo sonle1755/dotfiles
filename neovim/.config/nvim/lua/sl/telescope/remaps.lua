@@ -13,3 +13,4 @@ nnoremap('<leader>/t', "<cmd>lua require('telescope.builtin').treesitter()<CR>")
 
 nnoremap('<leader>bl', "<cmd>lua require('telescope.builtin').buffers()<CR>")
 nnoremap('<leader>te', "<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>")
+nnoremap('<leader>vcf', "<cmd>lua require('sl.telescope.functions').search_dotfiles()<CR>")

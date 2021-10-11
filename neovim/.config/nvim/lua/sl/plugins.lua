@@ -35,19 +35,19 @@ return require('packer').startup {
 
     -- Start Screen
     use {
-      'mhinz/vim-startify',
-      config = function() require 'sl.startify' end
+      'glepnir/dashboard-nvim',
+      config = function () require 'sl.dashboard-nvim' end
     }
 
     -- Icons
     use 'kyazdani42/nvim-web-devicons'
 
     -- Debug
-    use {
-      'puremourning/vimspector',
-      -- config = function() require 'sl.vimspector' end
-    }
-    use 'szw/vim-maximizer'
+    -- use {
+    --   'puremourning/vimspector',
+    --   -- config = function() require 'sl.vimspector' end
+    -- }
+    -- use 'szw/vim-maximizer'
 
     -- Git
     use {
@@ -125,14 +125,8 @@ return require('packer').startup {
       config = function() require 'sl.lualine' end
     }
 
-    -- Buffer Tabline
-    -- use {
-    --   'romgrk/barbar.nvim',
-    --   requires = {'kyazdani42/nvim-web-devicons'},
-    --   config = function() require 'sl.barbar' end
-    -- }
     use {
-      'akinsho/bufferline.nvim',
+    'akinsho/bufferline.nvim',
       requires = 'kyazdani42/nvim-web-devicons',
       config = function () require 'sl.bufferline' end
     }
@@ -149,5 +143,13 @@ return require('packer').startup {
       'simrat39/symbols-outline.nvim',
       config = function() require 'sl.symbols-outline' end
     }
+
+    -- Dashboard
+    -- #TODO: fix remaps & check issue #103 fix
+    use {
+      'ntpeters/vim-better-whitespace',
+      config = function () require 'sl.vim-better-whitespace' end
+    }
+
   end
 }
