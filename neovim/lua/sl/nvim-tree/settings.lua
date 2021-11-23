@@ -9,17 +9,6 @@ vim.g.nvim_tree_add_trailing = 1 -- 0 by default, append a trailing slash to fol
 vim.g.nvim_tree_group_empty = 1 --  0 by default, compact folders that only contain a single folder into one node in the file tree
 vim.g.nvim_tree_icon_padding = ' '
 
-require'nvim-tree'.setup {
-  diagnostics = {
-    enabled = true
-  },
-  view = {
-    width = 40,
-    side = 'left',
-    auto_resize = true,
-  }
-}
-
 vim.g.nvim_tree_window_picker_exclude = {
   ["filetype"] = { 'packer', 'qf' },
   ["buftype"] = { 'terminal' }
@@ -75,4 +64,26 @@ vim.g.nvim_tree_icons = {
 
 --  a list of groups can be found at `:help nvim_tree_highlight`
 -- highlight NvimTreeFolderIcon guibg=blue
+
+require'nvim-tree'.setup {
+  -- update the focused file on `BufEnter`, un-collapses the folders recursively until it finds the file
+  update_focused_file = {
+    -- enables the feature
+    enable      = true,
+    -- update the root directory of the tree to the one of the folder containing the file if the file is not under the current root directory
+    -- only relevant when `update_focused_file.enable` is true
+    update_cwd  = false,
+    -- list of buffer names / filetypes that will not update the cwd if the file isn't found under the current root directory
+    -- only relevant when `update_focused_file.update_cwd` is true and `update_focused_file.enable` is true
+    ignore_list = { 'dashboard' }
+  },
+  diagnostics = {
+    enabled = true
+  },
+  view = {
+    width = 40,
+    side = 'left',
+    auto_resize = true,
+  }
+}
 

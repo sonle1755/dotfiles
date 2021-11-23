@@ -3,7 +3,6 @@ local actions = require('telescope.actions')
 
 telescope.setup {
   defaults = {
-    prompt_prefix = '🔍 ',
     selection_caret = "> ",
     entry_prefix = "  ",
     initial_mode = "insert",
@@ -14,7 +13,7 @@ telescope.setup {
     winblend           = 0, -- transparency
     color_devicons     = true,
     set_env = { ['COLORTERM'] = 'truecolor' }, -- default = nil,
-    file_ignore_patterns = {"node_modules", "dist"},
+    file_ignore_patterns = {"node_modules", "dist", "site-packages"},
     generic_sorter =  require'telescope.sorters'.get_generic_fuzzy_sorter,
     border = {},
     borderchars = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },

@@ -1,8 +1,8 @@
 return function()
-  local sumneko_root_path = '/home/bim/Desktop/mixins/lua-language-server'
-  local sumneko_binary = sumneko_root_path .. "/bin/Linux/lua-language-server"
+  local sumneko_root_path = '/usr/lib/lua-language-server'
+  local sumneko_binary = sumneko_root_path .. '/bin/Linux/lua-language-server'
   return {
-    cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
+    cmd = {sumneko_binary, '-E', sumneko_root_path .. '/main.lua'};
     settings = {
       Lua = {
         runtime = {

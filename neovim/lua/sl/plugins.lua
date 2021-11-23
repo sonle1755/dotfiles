@@ -151,5 +151,10 @@ return require('packer').startup {
       config = function () require 'sl.vim-better-whitespace' end
     }
 
+    use {
+      'psf/black',
+      -- config = function () require 'sl.black' end
+    }
+
   end
 }

@@ -1,7 +1,7 @@
 nnoremap('<leader>ps', "<cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.input('Grep For > ')})<CR>")
 nnoremap('<leader>pw', "<cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.expand('<cword>')})<CR>")
 nnoremap('<leader>ref', "<cmd>lua require('telescope.builtin').lsp_references()<CR>")
-nnoremap('<leader>pf', "<cmd>lua require('telescope.builtin').find_files({ hidden = true })<CR>")
+nnoremap('<leader>pf', "<cmd>lua require('telescope.builtin').find_files()<CR>")
 nnoremap('<leader>pg', "<cmd>lua require('telescope.builtin').git_files()<CR>")
 nnoremap('<leader>qf', "<cmd>lua require('telescope.builtin').quickfix()<CR>")
 
