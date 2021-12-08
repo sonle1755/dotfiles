@@ -1,0 +1,9 @@
+# Keyboard Layout
+# setxkbmap uk &
+
+# Wallpaper
+nitrogen --restore &
+
+# Comsitor
+picom -f &
+
