@@ -1,5 +1,4 @@
-# dotfiles
-My dotfiles
+# Arch Configurations
 
 
 ## Installation
