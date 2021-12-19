@@ -19,5 +19,5 @@ main = do
         [ ((mod4Mask .|. shiftMask, xK_z), spawn "xscreensaver-command -lock")
 	, ((mod1Mask, xK_p), spawn rofiCmd)
         , ((controlMask, xK_Print), spawn "sleep 0.2; scrot -s ~/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.png")
-        , ((0, xK_Print), spawn "scrot ~/Pictures/Screenshots/%Y-%m-%d-%T-screenshot")
+        , ((0, xK_Print), spawn "scrot ~/Pictures/Screenshots/%Y-%m-%d-%T-screenshot.png")
         ]
