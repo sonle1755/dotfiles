@@ -1,38 +1,16 @@
--- Only required if you have packer in your `opt` pack
-local packer_exists = pcall(vim.cmd, [[packadd packer.nvim]])
-
-if not packer_exists then
-  if vim.fn.input("Download Packer? (y for yes)") ~= "y" then
-    return
-  end
-
-  print("Downloading packer.nvim...")
-  local directory = string.format(
-    '%s/site/pack/packer/opt/',
-    vim.fn.stdpath('data')
-  )
-
-  vim.fn.mkdir(directory, 'p')
-
-  local out = vim.fn.system(string.format(
-    'git clone %s %s',
-    'https://github.com/wbthomason/packer.nvim',
-    directory .. '/packer.nvim'
-  ))
-
-  print(out)
-  print("Downloaded packer.nvim")
-
-  print("Reopen NVIM and run :PackerSync twice")
-
-  return
-end
+-- Only required if you have packer configured as `opt`
+vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup {
   function(use)
     -- Packer can manage itself as an optional plugin
     use {'wbthomason/packer.nvim', opt = true}
 
+    -- Theme
+    use {
+      'gruvbox-community/gruvbox',
+       config = function () require 'sl.theme' end
+    }
     -- Start Screen
     use {
       'glepnir/dashboard-nvim',
@@ -42,12 +20,12 @@ return require('packer').startup {
     -- Icons
     use 'kyazdani42/nvim-web-devicons'
 
-    -- Debug
-    -- use {
-    --   'puremourning/vimspector',
-    --   -- config = function() require 'sl.vimspector' end
-    -- }
-    -- use 'szw/vim-maximizer'
+    -- -- Debug
+    -- -- use {
+    -- --   'puremourning/vimspector',
+    -- --   -- config = function() require 'sl.vimspector' end
+    -- -- }
+    -- -- use 'szw/vim-maximizer'
 
     -- Git
     use {
@@ -131,8 +109,6 @@ return require('packer').startup {
       config = function () require 'sl.bufferline' end
     }
 
-    -- Theming
-    use 'gruvbox-community/gruvbox'
 
     -- Mixins
     use {
@@ -154,6 +130,12 @@ return require('packer').startup {
     use {
       'psf/black',
       -- config = function () require 'sl.black' end
+    }
+
+
+    -- Markdown Preview
+    use {
+      'iamcco/markdown-preview.nvim'
     }
 
   end
