@@ -1,0 +1,9 @@
+[font]
+
+normal = { family = "Adwaitamono", style = "Regular" }
+size = 14.0
+
+[terminal]
+
+shell =  { program = "/bin/zsh", args = ["-1"] }
+
