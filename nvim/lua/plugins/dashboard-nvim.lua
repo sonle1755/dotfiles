@@ -2,9 +2,9 @@ return {
   {
     "nvimdev/dashboard-nvim",
     event = "VimEnter",
-    config =
+    opts =
       {
-        theme = "doom"        
+        theme = "doom"
       }
   }
 }

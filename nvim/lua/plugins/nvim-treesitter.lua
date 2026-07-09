@@ -1,26 +1,41 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
+    branch = "main",
     build = ":TSUpdate",
-    config = function()
-      local configs = require("nvim-treesitter.configs")
-
-      configs.setup({
-        ensure_installed = {
-          "lua",
-          "vim",
-          "vimdoc",
-          "query",
-          "markdown",
-          "markdown_inline",
-          "vue",
-          "c_sharp"
-			  },
-        highlight = { enable = true },
-        indent = { enable = true },
-        autotag = { enable = true },
-        context_commentstring = { enable = true }
-      })
-    end,
-  }
+    opts = {
+      highlight = { enable = true },
+      indent = { enable = true },
+      autotag = { enable = true },
+      folds = { enable = true },
+      context_commentstring = { enable = true },
+      ensure_installed = {
+        "bash",
+        "c",
+        "diff",
+        "html",
+        "javascript",
+        "jsdoc",
+        "json",
+        "lua",
+        "luadoc",
+        "luap",
+        "markdown",
+        "markdown_inline",
+        "printf",
+        "python",
+        "query",
+        "regex",
+        "toml",
+        "tsx",
+        "typescript",
+        "vim",
+        "vimdoc",
+        "xml",
+        "yaml",
+        -- "vue",
+        "c_sharp"
+      },
+    }
+  },
 }

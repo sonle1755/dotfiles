@@ -2,5 +2,7 @@ configuration {
  modi: "window,drun,ssh,combi";
  font: "hack 10";
  combi-modi: "window,drun,ssh";
- }
+ matching: "fuzzy";
+ show-icons: true;
+}
 @theme "solarized"

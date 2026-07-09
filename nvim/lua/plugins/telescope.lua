@@ -1,65 +1,52 @@
 return {
   "nvim-telescope/telescope.nvim",
-  branch = "0.1.x",
+  version = "0.2.1",
   dependencies = {
     "nvim-lua/plenary.nvim",
-    "MunifTanjim/nui.nvim"
+    -- "MunifTanjim/nui.nvim"
+    "nvim-telescope/telescope-file-browser.nvim"
+  },
+  keys = {
+    { "<leader>ps", false },
+    { "<leader>pw", false },
   },
   config = function()
-    local actions = require("telescope.actions")
-    local previewers = require("telescope.previewers")
-    local _bad = { ".*%.csv", ".*%.lua" }
-    local bad_files = function(filepath)
-      for _,v in ipairs(_bad) do
-        if filepath:match(v) then
-          return false
-        end
-      end
-
-      return true
-    end
-
-    local new_marker = function(filepath, bufnr, opts)
-      opts = opts or {}
-      if opts.use_ft_detect == nil then opts.use_ft_detect = true end
-      opts.use_ft_detect = opts.use_ft_detect == false and false or bad_files(filepath)
-      previewers.buffer_previewer_maker(filepath, bufnr, opts)
-    end
-
     require("telescope").setup({
       defaults = {
-        layout_config = { horizontal = { preview_cutoff = 0 } },
-        buffer_previewer_maker = new_marker,
-        mappings = {
-          i = {
-            ["<esc>"] = actions.close
-          }
-        }
+        layout_strategy = "horizontal",
+        layout_config = {
+          height = 0.95,
+          prompt_position = "top",
+          preview_cutoff = 0, -- always show preview
+        },
       },
       extensions = {
-        fzy_native = {
-          override_generic_sorter = false,
-          override_file_sorter = true,
-        }
+        fzf = {
+          fuzzy = true,                   -- false will only do exact matching
+          override_generic_sorter = true, -- override the generic sorter
+          override_file_sorter = true,    -- override the file sorter
+          case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
+          -- the default case_mode is "smart_case"
+        },
+        file_browser = {
+          theme = "ivy",
+          -- disables netrw and use telescope-file-browser in its place
+          hijack_netrw = true,
+        },
       }
     })
 
-    -- new keymaps here
-    local builtin = require("telescope.builtin")
-    vim.keymap.set("n", "<leader>ps", function() builtin.grep_string({ search = vim.fn.input('Grep For > ')}) end)
-    vim.keymap.set("n", "<leader>pw", function() builtin.grep_string({ search = vim.fn.expand('<cword>')}) end)
-    vim.keymap.set("n", "<leader>ref", builtin.lsp_references)
-    vim.keymap.set("n", "<leader>pf", builtin.find_files)
-    vim.keymap.set("n", "<leader>pg", builtin.git_files)
-    vim.keymap.set("n", "<leader>qf", builtin.quickfix)
+    require("telescope").load_extension("file_browser")
 
-     vim.keymap.set("n", "<leader>/h", builtin.command_history)
-     vim.keymap.set("n", "<leader>/c", builtin.commands)
-     vim.keymap.set("n", "<leader>/r", builtin.registers)
-     vim.keymap.set("n", "<leader>/m", builtin.marks)
-     vim.keymap.set("n", "<leader>/t", builtin.treesitter)
+    vim.keymap.set("n", "<leader>ps",
+      "<cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.input('Grep For > ')})<cr>")
+    vim.keymap.set("n", "<leader>pw",
+      "<cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.expand('<cword>')})<cr>")
+    vim.keymap.set("n", "<leader>pf", "<cmd>lua require('telescope.builtin').find_files()<cr>")
 
-     vim.keymap.set("n", "<leader>bl", builtin.buffers)
-     vim.keymap.set("n", "<leader>te", builtin.lsp_document_symbols)
-    end,
+    -- vim.keymap.set("n", "<space>pp", ":Telescope file_browser<CR>")
+
+    -- open file_browser with the path of the current buffer
+    vim.keymap.set("n", "<leader>pp", ":Telescope file_browser path=%:p:h select_buffer=true<CR>")
+  end,
 }

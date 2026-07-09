@@ -1,0 +1,25 @@
+Config { overrideRedirect = False
+       , font     = "xft:Ubuntu:weight=bold:pixelsize=11:antialias=true:hinting=true"
+       , additionalFonts = [ "xft:Mononoki:pixelsize=11:antialias=true:hinting=true"
+                           , "xft:Font Awesome 5 Free Solid:pixelsize=12"
+                           , "xft:Font Awesome 5 Brands:pixelsize=12"
+                           ]
+       , bgColor      = "#282828"
+       , fgColor      = "#ebdbb2"
+       , position = TopSize L 100 24 
+       , commands = [ Run XPropertyLog "_XMONAD_LOG_3"
+                    , Run Com "echo" ["<fn=3>\xf17c</fn>"] "penguin" 3600
+                    , Run Cpu
+                        [ "-L", "3"
+                        , "-H", "50"
+                        , "--high"  , "red"
+                        , "--normal", "green"
+                        ] 10
+                    , Run Memory ["--template", "Mem: <usedratio>%"] 10
+                    , Run Swap [] 10
+                    , Run Date "%a %Y-%m-%d <fc=#8be9fd>%H:%M</fc>" "date" 10
+                    , Run XMonadLog
+                    ]
+       , sepChar  = "%"
+       , alignSep = "}{"
+       , template = "%_XMONAD_LOG_3% } <fc=#ee9a00>%date%</fc> { <box type=Bottom width=2 mb=2 color=#d3869b><fc=#d3869b>%penguin%</fc></box> | %cpu% | %memory% | %swap% "

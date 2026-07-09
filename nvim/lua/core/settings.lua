@@ -28,9 +28,8 @@ vim.g.loaded_matchparen = 1
 vim.g.mapleader = ' '
 vim.o.cursorline = true
 vim.o.cursorcolumn = true
-vim.o.completeopt = "menuone,noselect"
 
-vim.cmd[[
+vim.cmd [[
 com! W w
 hi CursorLine   cterm=NONE ctermbg=darkgray ctermfg=NONE "guibg=lightgrey guifg=white
 hi CursorColumn cterm=NONE ctermbg=darkgray ctermfg=NONE "guibg=lightgrey guifg=white
