@@ -1,34 +1,37 @@
-# Arch Configurations
+# 🖥️ System Overview
 
-- [Neovim](https://github.com/sonle1755/dotfiles/wiki/Installation#neovim)
-- [Tmux](https://github.com/sonle1755/dotfiles/wiki/Installation#tmux)
-- [Rofi](https://github.com/sonle1755/dotfiles/wiki/Installation#rofi)
+- **OS:** Arch Linux
+- **Kernel:** `7.0.12-arch1-1`
+- **Shell:** zsh
 
-# Tips and Tricks
+## 🏗️ Core Components
 
-To override code snippets:
-Go to snippets directory: ~/.local/share/nvim/lazy/friendly-snippets/snippets/{language}
-and modify the snippet
+| Layer               | Component | Config Path           | Description                                         |
+| :------------------ | :-------- | :-------------------- | :-------------------------------------------------- |
+| **Display Manager** | Ly        |                       |                                                     |
+| **Window Manager**  | Xmonad    | `~/.config/xmonad/`   | Tiling WM with persistent multi-monitor workspaces. |
+| **Status Bar**      | Xmobar    | `~/.config/xmobar/`   | Lightweight system monitor bar.                     |
+| **Compositor**      | Picom     | `~/.config/picom/`    | Handles transparency, shadows, and vsync.           |
+| **Launcher**        | Rofi      | `~/.config/rofi/`     | Application runner and window switcher.             |
+| **Notifications**   | Dunst     | `~/.config/dunst/`    | Notification daemon for system alerts.              |
+| **Terminal**        | Alacritty | `~/.config/alacritty` |                                                     |
+| **Shell**           | Zsh       | `~/.zshrc`            |                                                     |
 
-To add custom snippet: see https://github.com/L3MON4D3/LuaSnip/blob/master/DOC.md#vs-code
-nvim snippet plugin : nvim-cmp, luasnip, friendly-snippets
+---
 
-Audio
+## 🛠️ Hardware & Drivers
 
-- There's no sound on headset
-  If the machine just when to sleep mode and your headset is turned off, try disconnect and reconnect
-  it again. Else:
-  Run `pactl info` and check Default Sink
-  Run `pactl list sinks` to get the headset sink id
-  Run `pactl set-default-sink {above sink id}` to set default sink (output device)
+- **Display:** 3x Monitor Setup
+- **GPU:** Intel Corporation Meteor Lake-P [Intel Graphics]
+- **Driver:** i915 (Mesa)
 
-Monitors
+---
 
-- Connecting monitor using DisplayLink (docking stations)
-  Follow these instructions: https://wiki.archlinux.org/title/DisplayLink
+## 🚀 Deployment / Setup Guide
 
-Workflow:
+1.  **Sync Dotfiles:** `stow .` (or manual `ln -s`)
+2.  **Install Dependencies:** `sudo pacman -S --needed - < pkglist.txt`
+3.  **Permissions:** Ensure `xmonad` is executable in `/usr/share/xsessions/`.
+4.  **Autostart:** Managed via `~/.xinitrc`.
 
-1. cd to project/solution directory
-2. run tmux & nvim .
-   (Navigate between tmux pane: Ctrl + b + j - up and down)
+---
