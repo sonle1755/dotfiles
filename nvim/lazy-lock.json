@@ -1,5 +1,6 @@
 {
   "LuaSnip": { "branch": "master", "commit": "642b0c595e11608b4c18219e93b88d7637af27bc" },
+  "actions-preview.nvim": { "branch": "master", "commit": "0ac9c2aa3cfc8c885321c0862b50b6b1c3392405" },
   "cmp-buffer": { "branch": "main", "commit": "b74fab3656eea9de20a9b8116afa3cfc4ec09657" },
   "cmp-nvim-lsp": { "branch": "main", "commit": "cbc7b02bb99fae35cb42f514762b89b5126651ef" },
   "cmp-path": { "branch": "main", "commit": "c642487086dbd9a93160e1679a1327be111cbc25" },
@@ -31,7 +32,6 @@
   "roslyn.nvim": { "branch": "main", "commit": "b62d1a588765f0aa1b46ed260252c9e456408835" },
   "telescope-file-browser.nvim": { "branch": "master", "commit": "3610dc7dc91f06aa98b11dca5cc30dfa98626b7e" },
   "telescope-fzf-native.nvim": { "branch": "main", "commit": "6fea601bd2b694c6f2ae08a6c6fab14930c60e2c" },
-  "telescope-themes": { "branch": "main", "commit": "65721365bd7a04a6c9679e76b6387b60320fd5f3" },
   "telescope.nvim": { "branch": "master", "commit": "3333a52ff548ba0a68af6d8da1e54f9cd96e9179" },
   "tiny-code-action.nvim": { "branch": "main", "commit": "9f4b05c2f93f76a7bd517d9587ad0dc73cca0d0d" },
   "which-key.nvim": { "branch": "main", "commit": "3aab2147e74890957785941f0c1ad87d0a44c15a" }
