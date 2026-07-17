@@ -28,11 +28,6 @@ return {
           case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
           -- the default case_mode is "smart_case"
         },
-        file_browser = {
-          theme = "ivy",
-          -- disables netrw and use telescope-file-browser in its place
-          hijack_netrw = true,
-        },
       }
     })
 
@@ -43,10 +38,5 @@ return {
     vim.keymap.set("n", "<leader>pw",
       "<cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.expand('<cword>')})<cr>")
     vim.keymap.set("n", "<leader>pf", "<cmd>lua require('telescope.builtin').find_files()<cr>")
-
-    -- vim.keymap.set("n", "<space>pp", ":Telescope file_browser<CR>")
-
-    -- open file_browser with the path of the current buffer
-    vim.keymap.set("n", "<leader>pp", ":Telescope file_browser path=%:p:h select_buffer=true<CR>")
   end,
 }
