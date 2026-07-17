@@ -1,3 +1,8 @@
+-- Disable netrw
+-- Must be placed before any plugin manager setup
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 require("nvim-lazy")
 require("core")
 require("csharp_sort")
@@ -61,3 +66,13 @@ vim.api.nvim_create_autocmd("VimEnter", {
     end
   end,
 })
+
+
+-- Remaps default keymaps
+vim.keymap.set("n", "grr", "<cmd>Trouble lsp_references focus=true follow=false<cr>", {
+  desc = "References (Trouble)",
+})
+vim.keymap.set("n", "gri", "<cmd>Trouble lsp_implementations focus=true follow=false<cr>")
+vim.keymap.set("n", "grd", "<cmd>Trouble lsp_definitions focus=true follow=false<cr>")
+vim.keymap.set("n", "grD", "<cmd>Trouble lsp_declarations focus=true follow=false<cr>")
+vim.keymap.set("n", "grt", "<cmd>Trouble lsp_type_definitions focus=true follow=false<cr>")
