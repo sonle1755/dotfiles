@@ -10,6 +10,12 @@ return {
   config = function()
     vim.keymap.set("n", "<leader>e", "<Cmd>Neotree<CR>")
     require("neo-tree").setup({
+      filesystem = {
+        follow_current_file = {
+          enabled = true,
+          leave_dirs_open = false,
+        }
+      },
       window = {
         position = "right",
       }
