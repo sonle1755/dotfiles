@@ -48,3 +48,16 @@ end, {})
 
 -- Sessions
 -- vim.keymap.set("n", "<leader>ss", "<cmd>")
+vim.api.nvim_create_autocmd("VimEnter", {
+  nested = true,
+  callback = function()
+    if vim.fn.argc() == 0 then
+      local ok = pcall(require("resession").load, vim.fn.getcwd(), { dir = "dirsession", silence_errors = true })
+      if ok then
+        vim.schedule(function()
+          pcall(vim.cmd, "Neotree filesystem show")
+        end)
+      end
+    end
+  end,
+})
