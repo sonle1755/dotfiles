@@ -31,12 +31,31 @@ return {
       }
     })
 
-    require("telescope").load_extension("file_browser")
 
+    -- Grep word
     vim.keymap.set("n", "<leader>ps",
       "<cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.input('Grep For > ')})<cr>")
+
+    -- Grep word exactly
+    vim.keymap.set("n", "<leader>pS", function()
+      require("telescope.builtin").grep_string({
+        search = vim.fn.input('Grep Exactly For > '),
+        word_match = "-w",
+      })
+    end)
+
+    -- Grep current word
     vim.keymap.set("n", "<leader>pw",
       "<cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.expand('<cword>')})<cr>")
+
+    -- Grep current word exactly
+    vim.keymap.set("n", "<leader>pS", function()
+      require("telescope.builtin").grep_string({
+        search = vim.fn.input('Grep Exactly For > '),
+        word_match = "-w",
+      })
+    end)
+
     vim.keymap.set("n", "<leader>pf", "<cmd>lua require('telescope.builtin').find_files()<cr>")
   end,
 }
