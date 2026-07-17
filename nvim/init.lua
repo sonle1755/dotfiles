@@ -69,10 +69,10 @@ vim.api.nvim_create_autocmd("VimEnter", {
 
 
 -- Remaps default keymaps
-vim.keymap.set("n", "grr", "<cmd>Trouble lsp_references focus=true follow=false<cr>", {
+vim.keymap.set("n", "grr", "<cmd>Trouble lsp_references<cr>", {
   desc = "References (Trouble)",
 })
-vim.keymap.set("n", "gri", "<cmd>Trouble lsp_implementations focus=true follow=false<cr>")
-vim.keymap.set("n", "grd", "<cmd>Trouble lsp_definitions focus=true follow=false<cr>")
-vim.keymap.set("n", "grD", "<cmd>Trouble lsp_declarations focus=true follow=false<cr>")
-vim.keymap.set("n", "grt", "<cmd>Trouble lsp_type_definitions focus=true follow=false<cr>")
+vim.keymap.set("n", "gri", "<cmd>Trouble lsp_implementations<cr>")
+vim.keymap.set("n", "grd", "<cmd>Trouble lsp_definitions<cr>")
+vim.keymap.set("n", "grD", "<cmd>Trouble lsp_declarations<cr>")
+vim.keymap.set("n", "grt", "<cmd>Trouble lsp_type_definitions<cr>")
