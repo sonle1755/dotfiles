@@ -8,7 +8,6 @@ return {
   },
   lazy = false,                    -- neo-tree will lazily load itself
   config = function()
-    vim.keymap.set("n", "<leader>e", "<Cmd>Neotree<CR>")
     require("neo-tree").setup({
       filesystem = {
         follow_current_file = {
@@ -16,9 +15,6 @@ return {
           leave_dirs_open = false,
         }
       },
-      window = {
-        position = "right",
-      }
     })
   end
 }

@@ -51,8 +51,9 @@ vim.api.nvim_create_user_command("CsSortInterfaceMethods", function()
   require("csharp_sort").sort_interface_methods()
 end, {})
 
--- Sessions
--- vim.keymap.set("n", "<leader>ss", "<cmd>")
+
+
+---- Sessions
 vim.api.nvim_create_autocmd("VimEnter", {
   nested = true,
   callback = function()
@@ -68,11 +69,19 @@ vim.api.nvim_create_autocmd("VimEnter", {
 })
 
 
--- Remaps default keymaps
-vim.keymap.set("n", "grr", "<cmd>Trouble lsp_references<cr>", {
+-- Remaps
+
+---- Trouble
+vim.keymap.set("n", "grr", "<cmd>Trouble lsp_references toggle<cr>", {
   desc = "References (Trouble)",
 })
-vim.keymap.set("n", "gri", "<cmd>Trouble lsp_implementations<cr>")
-vim.keymap.set("n", "grd", "<cmd>Trouble lsp_definitions<cr>")
-vim.keymap.set("n", "grD", "<cmd>Trouble lsp_declarations<cr>")
-vim.keymap.set("n", "grt", "<cmd>Trouble lsp_type_definitions<cr>")
+vim.keymap.set("n", "gri", "<cmd>Trouble lsp_implementations toggle<cr>")
+vim.keymap.set("n", "grd", "<cmd>Trouble lsp_definitions toggle<cr>")
+vim.keymap.set("n", "grD", "<cmd>Trouble lsp_declarations toggle<cr>")
+vim.keymap.set("n", "grt", "<cmd>Trouble lsp_type_definitions toggle<cr>")
+vim.keymap.set("n", "gb", "<cmd>Trouble symbols toggle<cr>")
+
+
+---- Neotree
+vim.keymap.set("n", "<leader>we", "<Cmd>Neotree filesystem reveal<CR>", { desc = "Open Neotree file explorer" })
+vim.keymap.set("n", "<leader>wb", "<Cmd>Neotree buffers toggle right<CR>", { desc = "Open Neotree buffers" })
