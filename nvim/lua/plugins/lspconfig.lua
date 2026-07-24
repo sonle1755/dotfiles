@@ -18,24 +18,24 @@ return {
     vim.lsp.enable('lua_ls');
 
     -- Roslyn
-    vim.lsp.config("roslyn", {
-      capabilities = capabilities,
-      on_attach = function()
-        print("This will run when the server attaches!")
-      end,
-      settings = {
-        ["csharp|inlay_hints"] = {
-          csharp_enable_inlay_hints_for_implicit_object_creation = true,
-          csharp_enable_inlay_hints_for_implicit_variable_types = true,
-        },
-        ["csharp|code_lens"] = {
-          dotnet_enable_references_code_lens = true,
-        },
-        ["csharp|formatting"] = {
-          dotnet_organize_imports_on_format = true,
-        },
-      },
-    })
+    -- vim.lsp.config("roslyn", {
+    --   capabilities = capabilities,
+    --   on_attach = function()
+    --     print("This will run when the server attaches!")
+    --   end,
+    --   settings = {
+    --     ["csharp|inlay_hints"] = {
+    --       csharp_enable_inlay_hints_for_implicit_object_creation = true,
+    --       csharp_enable_inlay_hints_for_implicit_variable_types = true,
+    --     },
+    --     ["csharp|code_lens"] = {
+    --       dotnet_enable_references_code_lens = true,
+    --     },
+    --     ["csharp|formatting"] = {
+    --       dotnet_organize_imports_on_format = true,
+    --     },
+    --   },
+    -- })
 
     -- React
     vim.lsp.config("ts_ls", {
