@@ -1,26 +1,6 @@
--- Disable netrw
--- Must be placed before any plugin manager setup
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-
-require("nvim-lazy")
 require("core")
+require("nvim-lazy")
 require("csharp_sort")
-
--- Quickfix list nav keymaps
-vim.keymap.set("n", "<leader>q", "<cmd>copen<cr>")
-vim.keymap.set("n", "<leader>Q", "<cmd>cclose<cr>")
-vim.keymap.set("n", "<C-j>", "<cmd>cn<cr>")
-vim.keymap.set("n", "<C-k>", "<cmd>cp<cr>")
-
--- Open quickfix list with lsp diagnostics
-vim.keymap.set("n", "qd", function()
-  vim.diagnostic.setqflist({
-    open = true,
-    title = "Diagnostics",
-    severity = { min = vim.diagnostic.severity.HINT }
-  })
-end, { desc = "Populate quickfix with diagnostics" })
 
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('my.lsp', {}),
@@ -67,21 +47,3 @@ vim.api.nvim_create_autocmd("VimEnter", {
     end
   end,
 })
-
-
--- Remaps
-
----- Trouble
-vim.keymap.set("n", "grr", "<cmd>Trouble lsp_references toggle<cr>", {
-  desc = "References (Trouble)",
-})
-vim.keymap.set("n", "gri", "<cmd>Trouble lsp_implementations toggle<cr>")
-vim.keymap.set("n", "grd", "<cmd>Trouble lsp_definitions toggle<cr>")
-vim.keymap.set("n", "grD", "<cmd>Trouble lsp_declarations toggle<cr>")
-vim.keymap.set("n", "grt", "<cmd>Trouble lsp_type_definitions toggle<cr>")
-vim.keymap.set("n", "gb", "<cmd>Trouble symbols toggle<cr>")
-
-
----- Neotree
-vim.keymap.set("n", "<leader>we", "<Cmd>Neotree filesystem reveal<CR>", { desc = "Open Neotree file explorer" })
-vim.keymap.set("n", "<leader>wb", "<Cmd>Neotree buffers toggle right<CR>", { desc = "Open Neotree buffers" })
